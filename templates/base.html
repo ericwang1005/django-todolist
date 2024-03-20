@@ -4,14 +4,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}{% endblock %}</title>
+    {% block style %}
+    <style>
+      body{
+        background-color: bisque;
+        text-align: center;
+      }
+      .nav-bar{
+        margin: 0;
+        background-color: yellow;
+      }
+      .content{
+        text-align: center;
+        margin: 6px;
+      }
+      #message{
+        color: red;
+      }
+    </style>
+    {% endblock %}
   </head>
   <body>
+    <div class="nav-bar">
     {% if user.is_authenticated %} User Name:{{ user.name }}
     <a href="{% url 'logout' %}">Logout</a>
     {% else %}
     <a href="{% url 'login' %}">Login</a>
     <a href="{% url 'register' %}">Register</a>
-    {% endif %} {% block content %} {% endblock %}
+  </div>
+    {% endif %} 
+    <div class="content">
+      {% block content %} {% endblock %}
+    </div>
     <p id="message">{{message}}</p>
   </body>
 </html>

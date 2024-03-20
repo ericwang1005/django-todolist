@@ -1,5 +1,5 @@
-{%extends 'base.html'%} {%block title%}Pesonal Profolio{%endblock%} {%block
-content%}
+{%extends 'base.html'%} {%block title%}Pesonal Profolio{%endblock%}
+{%block content%}
 <h1>Profolio</h1>
 <!--是否有認證過-->
 {% if user.is_authenticated %} Login:{{ user }}
@@ -12,4 +12,5 @@ content%}
 </ul>
 {% else %}
 <p><a href="{% url 'login' %}">請先登入!</a></p>
-{% endif %} {% endblock %}
+{% endif %} 
+{% endblock %}
