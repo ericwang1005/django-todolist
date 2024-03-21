@@ -24,8 +24,8 @@
 - python manage.py startpp [application name]
   - settings.py
     - install app
-    - "user.apps.UserConfig" .
+    - "[application name].apps.[application name]Config" .
 
 7. 在各個 app 當中新增獨立的 template
 
-- user/templates/user
+- [application name]/templates/[application name]
