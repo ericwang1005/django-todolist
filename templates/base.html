@@ -6,36 +6,48 @@
     <title>{% block title %}{% endblock %}</title>
     {% block style %}
     <style>
-      body{
+      body {
         background-color: bisque;
         text-align: center;
       }
-      .nav-bar{
+      .nav-bar {
         margin: 0;
         background-color: yellow;
       }
-      .content{
+      .content {
         text-align: center;
         margin: 6px;
       }
-      #message{
+      #message {
         color: red;
+      }
+      .link-bar {
+        padding: 6px;
+        border: 1px solid black;
+        border-radius: 6px;
+        width: fit-content;
+        margin: auto;
+        background-color: orange;
       }
     </style>
     {% endblock %}
   </head>
   <body>
     <div class="nav-bar">
-    {% if user.is_authenticated %} User Name:{{ user.name }}
-    <a href="{% url 'logout' %}">Logout</a>
-    {% else %}
-    <a href="{% url 'login' %}">Login</a>
-    <a href="{% url 'register' %}">Register</a>
-  </div>
-    {% endif %} 
-    <div class="content">
-      {% block content %} {% endblock %}
+      {% if user.is_authenticated %} User Name:
+      <a href="{%url 'profile'%}">{{ user.username }}</a>
+      <div class="link-bar">
+        <a href="{% url 'todo' %}">Todo List</a>|
+        <a href="{% url 'logout' %}">Logout</a>
+      </div>
+      {% else %}
+      <a href="{% url 'login' %}">Login</a>
+      <a href="{% url 'register' %}">Register</a>
     </div>
+    {% endif %}
+    {% block content %}
+    <div class="content"></div>
+    {% endblock %}
     <p id="message">{{message}}</p>
   </body>
 </html>

@@ -1,10 +1,11 @@
-{%extends 'base.html'%} {%block title%}Pesonal Profolio{%endblock%}
+{%extends 'base.html'%}
+{%block title%}Pesonal Profolio{%endblock%}
 {%block content%}
 <h1>Profolio</h1>
 <!--是否有認證過-->
 {% if user.is_authenticated %} Login:{{ user }}
 <a href="{% url 'logout' %}">Logout</a>
-<ul>
+<ul style="list-style: none">
   <li>註冊日期:{{ user.date_joined }}</li>
   <li>email:{{ user.email }}</li>
   <li>是否為管理員: {% if user.is_superuser %} 是 {% else %} 否 {% endif %}</li>
@@ -12,5 +13,5 @@
 </ul>
 {% else %}
 <p><a href="{% url 'login' %}">請先登入!</a></p>
-{% endif %} 
+{% endif %}
 {% endblock %}

@@ -1,0 +1,11 @@
+{%extends 'base.html'%} {% block title %}Todo{%endblock%} {% block content %}
+<h1>Todo List</h1>
+{% for todo in todos %}
+<ul style="list-style: none">
+  <a href="{% url 'view_todo' todo.id %}">{{todo.title}}</a>
+  <li>{{todo.text}}</li>
+  <li>{{todo.created}}</li>
+  <li>{{todo.date_comleted}}</li>
+  <li>{{todo.important}}</li>
+</ul>
+{% endfor %} {% endblock %}

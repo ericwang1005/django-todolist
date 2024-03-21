@@ -31,7 +31,7 @@ def user_login(request):
                     login(request, user)
                     message = '登入成功!'
                     return redirect(
-                        user_profile
+                        "todo"
                     )
                 else:
                     message = '帳號或密碼錯誤'
