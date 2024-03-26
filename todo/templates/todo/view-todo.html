@@ -1,4 +1,11 @@
 {%extends 'base.html'%} {% block title %}Todo Task{%endblock%} {% block content %}
 <h1>Task</h1>
-{{todo}}
+建立時間{{todo.created}}</br>
+完成時間{{todo.date_comleted}}
+<form action="" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Update" name="update">
+    <input type="submit" value="Delete" name="delete">
+</form>
 {% endblock %}

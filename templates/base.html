@@ -37,7 +37,9 @@
       {% if user.is_authenticated %} User Name:
       <a href="{%url 'profile'%}">{{ user.username }}</a>
       <div class="link-bar">
-        <a href="{% url 'todo' %}">Todo List</a>|
+        <a href="{% url 'todo_list' %}">Todo List</a>|
+        <a href="{% url 'create_todo' %}">Create Todo</a>|
+        <a href="{% url 'complete_todolist' %}">Completed</a>|
         <a href="{% url 'logout' %}">Logout</a>
       </div>
       {% else %}
@@ -50,4 +52,11 @@
     {% endblock %}
     <p id="message">{{message}}</p>
   </body>
+  {% block javascript %}
+  <script>
+    function confirmDelete(){
+      return confirm('You Sure Want to Delete?');
+    }
+  </script>
+  {% endblock %}
 </html>

@@ -14,6 +14,8 @@ class Todo(models.Model):
     # on_delete=models.CASCADE , CASCADE => 是當User(主人)消失就會連同TODO的資料一起消失
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    completed = models.BooleanField(default=False)
     # 更改後端ADMIN的資料名稱
+
     def __str__(self) -> str:
         return f'{self.id}-{self.title}'
