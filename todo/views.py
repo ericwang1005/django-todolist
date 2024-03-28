@@ -77,3 +77,27 @@ def delete_todo(request, id):
     except Exception as e:
         print(e)
     return redirect('todo_list')
+
+
+@login_required
+def completed_todo_byid(request, id):
+    try:
+        todo = Todo.objects.get(id=id)
+        todo.completed = True
+        todo.date_comleted = datetime.now()
+        todo.save()
+    except Exception as e:
+        print(e)
+        return redirect('todo_list')
+
+
+@login_required
+def uncompleted_todo_byid(request, id):
+    try:
+        todo = Todo.objects.get(id=id)
+        todo.completed = False
+        todo.date_comleted = datetime.now()
+        todo.save()
+    except Exception as e:
+        print(e)
+        return redirect('todo_list')

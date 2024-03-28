@@ -16,4 +16,7 @@
   {% endif %}
 </ul>
 <a href="{% url 'delete_todo' todo.id %}" onclick=" return confirmDelete()">Delete</a>
+<a href="{% url 'completed_todo' todo.id %}" onclick="return confirmCompleted()">Confirmed</a>
+<a href="{% url 'uncompleted_todo' todo.id %}" onclick="return confirmCompleted()">Reverse</a>
+
 {% endfor %} {% endblock %}
